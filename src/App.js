@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React,{Component} from "react"
+import "./App.css"
+class Contador extends Component {
+  state={
+    conte: 0,
+  }
+  somar =() =>{
+    if(this.state.conte <10){
+      this.setState({conte: this.state.conte +1})
+    }
+    
+  }
+  menos =() =>{
+    if(this.state.conte >0){
+    this.setState({conte: this.state.conte -1})
+  }
+  }
+  render(){
+    return(
+     <section>
+        <h1>CONTADOR</h1>
+        <h2>{this.state.conte}</h2>
+        <div>
+        <button onClick={this.menos}>-</button>
+        <button onClick={this.somar}>+</button>
+        </div>
+        </section>
+    )
+  }
 }
-
-export default App;
+export default Contador
